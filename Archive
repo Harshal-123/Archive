@@ -1,0 +1,293 @@
+"""my_marbles = 17
+jenny_marbles = 7 * 3
+total_marbles = (my_marbles - 15 + 12) + jenny_marbles
+print("We have "+ str(total_marbles) +" marbles")
+
+list1 = ["hi, my name is harshal", 15, 0.5]
+print(list1)
+print(list1[0])
+tuple1 = ("hi, my name is harshal",)
+print(tuple1[0])
+True
+False
+print(False | False)
+if 5 < 3: 
+  print("5<3")
+else:
+  print("5>3")"""
+
+"""check = -4
+if check > 5:
+  print(str(check) + " is greater than 5")
+elif check == 5:
+  print(str(check) + " is equal to 5")
+else:
+  print(str(check) + " is less than 5")"""
+
+"""def compare_five(num1, num2):
+  if num1 + num2 > 5:
+    print(str(num1 + num2) + " is greater than 5")
+  elif num1 + num2 == 5:
+    print(str(num1 + num2) + " is equal to 5")
+  else:
+    print(str(num1 + num2) + " is less than 5")
+
+compare_five(-2, -3)"""
+
+"""def print_book(Title, Author, Copies, Price):
+
+  print("Title: " + Title)
+  print("Author: " + Author)
+  print("Number of Copies: " + str(Copies))
+  print("Price per Copy: $" + str(Price))
+  print("Revenue: $" + str(Copies*Price))
+
+print_book("I Know Why the Caged Bird Sings", "Maya Angelou", 100, 20)"""
+
+"""x = 0
+print(x)
+def increase_x():
+  global x
+  x += 1
+  print(x)
+  return 7
+
+x = increase_x()
+print(x)
+
+x=0
+for i in range(0,10):
+  print(x)
+  x += 1
+  print(i*2)"""
+
+"""class Vehicle:
+  def __init__(self, form, wheelamt, color):
+    self.form = form
+    self.wheelamt = wheelamt
+    self.color = color
+  def print_name(self):
+    print (self.form)
+
+Bicycle = Vehicle("land", "two", "red")
+Car = Vehicle("land", "four", "black")
+Train = Vehicle("land", "eight", "orange")
+Plane = Vehicle("air", "six", "white")
+
+print(Bicycle.wheelamt)
+print(Car.color)
+print(Plane.form)
+
+Bicycle.print_name()"""
+
+"""class Rectangle:
+  def __init__(self, length, width, height):
+    self.length = length
+    self.width = width
+    self.height = height
+  
+  def perimeter(self):
+    return self.length * 2 + self.width * 2
+    
+  def area(self):
+    return self.length * self.width
+
+  def update(self, length, width, height):
+    self.length = length
+    self.width = width
+    self.height = height
+
+
+rectangle = Rectangle(4, 2, 1)
+rectangle.perimeter()
+print(rectangle.perimeter())
+rectangle.area()
+print(rectangle.area())
+
+rectangle.update(5, 3, 1)
+print(rectangle.length)
+
+class Square(Rectangle):
+  def __init__(self, side, color):
+    super().__init__(side, side, side)
+    self.color = color
+
+square = Square(5, "red")
+square.area()
+print(square.area())
+print(square.color)"""
+
+class Pokemon:
+  def __init__(self, element, gender):
+    self.element = element
+    self.gender = gender
+
+class Fire(Pokemon):
+  def __init__(self, gender):
+    super().__init__("fire", gender)
+    self.gender = gender
+  
+  def strong(self):
+    self.element > grass
+
+  def weak(self):
+    self.element < water
+
+class Water(Pokemon):
+  def __init__(self, gender):
+    super().__init__("water", gender)
+    self.gender = gender
+
+  def strong(self):
+    self.element > fire
+
+  def weak(self):
+    self.element < grass
+
+
+
+class Shape:
+  def __init__(self, sides, dimension):
+    self.sides = sides
+    self.dimension = "two"
+
+class Hexagon(Shape):
+  def __init__(self, sides, dimension, length):
+    super().__init__(sides, dimension)
+    self.sides = "six"
+    self.length = length
+  
+  def perimeter(self):
+    return self.length * 6
+
+  def area(self):
+    return 3 * math.sqrt(3)/2 * self.length ** 2
+
+class Octagon(Shape):
+  def __init__(self, sides, dimension, length):
+    super().__init__(sides, dimension)
+    self.sides = "eight"
+    self.length = length
+
+  def perimeter(self):
+    return self.length * 8
+
+  def area(self):
+    return 2 * (1+math.sqrt(2)) * self.length ** 2
+
+class Prism:
+  def __init__(self, faces, dimension, length):
+    self.sides = sides
+    self.dimension = three
+    self.length = length
+
+class Cube(Prism):
+  def __init__(self, faces, dimension, length):
+    super().__init__(faces, dimension)
+    self.faces = "six"
+    
+  def Vol(self):
+    return self.length ** 3
+
+  def Surface(self):
+    return 6 * self.length ** 2
+
+class Hexagonal(Prism):
+  def __init__(self, faces, dimension, length, height):
+    super().__init__(faces, dimension)
+    self.faces = "eight"
+    self.height = height
+    
+  def Vol(self):
+    return return 3 * math.sqrt(3)/2 * self.length ** 2 * self.height
+
+  def Surface(self):
+    return 6 * self.length * self.height + 3 * math.sqrt(3) * self.length ** 2
+    
+    
+    import mod
+print(mod.is_substring("end", "engend"))
+#s = "This is a sentence"
+#print(s[::-1])
+
+"""
+Write a function that determines whether w is a substring of s
+
+"""
+
+"""def is_substring(w, s):
+  w_len = len(w)
+  s_len = len(s)
+  
+  if w_len > s_len:
+    return False
+    
+  j = 0 
+    
+  for i in range(s_len):
+    if w[j] == s[i]:
+      j += 1
+    else:
+      j = 0
+    if j == w_len:
+      return True
+  
+  return False
+      
+result = is_substring("end", "enbenbenbenb")
+print(result)
+
+def is_substring_test():
+  cases = {"end": "engend", "topend": "top", "6780=": "6780=7895", "gar": "dope this gar", "and": "anbangan an an an"}
+  
+  for w, s in cases.items():
+    print(is_substring(w, s))
+
+is_substring_test()"""
+
+"""def is_anagram(a, b):
+  a_len = len(a)
+  b_len = len(b)
+
+  if a_len > b_len:
+    return False
+  elif a_len < b_len:
+    return False
+  else:
+    return True
+  
+  j = 0
+
+  for i in range(b_len):
+    for i in range(b_len):
+      if a[j] == b[i]:
+        j += 1
+        break
+  
+  return True
+
+result = is_anagram("listen", "honeyb")
+print(result)
+    
+
+
+
+def is_palindrome(p):
+  k = p.replace(" ","")
+
+  k_len = len(k)
+
+  j = k_len - 1
+
+  for i in range(k_len):
+    if k[j] == k[i]:
+      j -= 1
+    else:
+      return False
+  
+  return True
+
+result = is_palindrome("nurses run")
+print(result)
+"""
+
