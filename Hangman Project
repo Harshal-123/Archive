@@ -1,0 +1,140 @@
+#Unit 3/End of unit project - hangman
+from random import *
+
+
+class Hangman:
+    def __init__(self, answer):
+        self.answer = answer.lower()
+        self.wrong_guesses = 0
+        self.answer_letters = []
+        self.correct_letters = []
+        self.incorrect_letters = []
+        self.board = ['''
+      +----+
+      |    |
+           |  		
+           |
+           |
+           |
+    ==========''','''
+      +----+
+      |    |
+      O    |
+           |
+           |
+           |
+    ==========''','''
+      +----+
+      |    |
+      O    |
+      |    |
+           |
+           |
+    ==========''','''
+      +----+
+      |    |
+      O    |
+     /|    |
+           |
+           |
+    ==========''','''
+      +----+
+      |    |
+      O    |
+     /|\   |
+           |
+           |
+    ==========''','''
+      +----+
+      |    |
+      O    |
+     /|\   |
+     /     |
+           |
+    ==========''','''
+      +----+
+      |    |
+      O    |
+     /|\   |
+     / \   |
+           |
+    ==========''']
+
+
+    def play(self):
+        print(
+            "Welcome to hangman! Your opponent has chosen the secret word, and you will have to guess it before the hangman is drawn out. This means you get 5 wrong guesses and a final chance to guess the whole word. Good luck!"
+        )
+        print("The word is " + str(len(self.answer)) + " letters long.\n")
+
+
+        while self.wrong_guesses < 6:
+            self.print_hangman()
+            while True:
+                ans = input()
+                if not self.valid_guess(
+                        ans
+                ) or ans in self.incorrect_letters + self.correct_letters:
+                    continue
+                else:
+                    break
+
+            self.record_guess(ans)
+
+            a_len = len(self.correct_letters)
+            b_len = len(self.answer)
+
+            if a_len == b_len:
+                self.user_won()
+                return
+
+        self.computer_won()
+
+    def print_hangman(self):
+        print(self.board[self.wrong_guesses])
+        ans_len = len(self.answer)
+        correct_len = len(self.correct_letters)
+        
+        temp = ["_" for i in range(ans_len)]
+        
+        for i in range(ans_len):
+            for g in range(correct_len):
+                if self.answer[i] == self.correct_letters[g]:
+                    letter = self.correct_letters[g]
+                    temp[i] = letter
+                    break
+                
+        print("\n" + " ".join(temp))
+
+
+    def valid_guess(self, guess):
+        guess_len = len(guess)
+
+        if guess_len != 1 or not guess.islower():
+            return False
+        else:
+            return not guess.isdigit()
+
+    def record_guess(self, guess):
+        correct_len_before = len(self.correct_letters)
+          
+        for s in range(len(self.answer)):
+            if guess == self.answer[s]:
+                self.correct_letters += guess
+              
+        correct_len_after = len(self.correct_letters)
+        
+        if correct_len_after == correct_len_before:
+          	self.incorrect_letters += guess
+          	self.wrong_guesses += 1
+          
+        self.print_hangman()
+
+    def user_won(self):
+        print("You have won!")
+
+    def computer_won(self):
+        print("The Computer has won, the answer was " + str(self.answer) + ".")
+
+hangman = Hangman("Hangman")
+hangman.play()
