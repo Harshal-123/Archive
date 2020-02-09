@@ -26,3 +26,29 @@ if __name__  == '__main__':
 
   llist.printList()
 
+
+
+class Node:
+  def __init__(self, data):
+    self.data = data
+    self.next = None
+    
+n1 = Node(1)
+
+n2 = Node(2)
+
+n3 = Node(3)
+
+
+n1.next = n2
+n2.next = n3
+
+def go_through_nodes(n):
+  print(n.data) # print current node
+  if n.next:
+    go_through_nodes(n.next)
+
+  
+  
+  
+go_through_nodes(n1)
